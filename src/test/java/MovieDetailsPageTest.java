@@ -9,16 +9,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
+
 import java.time.Duration;
-import pages.*;
+import stepdefinitions.*;
 
 public class MovieDetailsPageTest {
     public WebDriver driver;
     LoginPage loginPage;
     HomePage homePage;
     PopularPage popularPage;
-    SearchPage searchPage;
+
     MovieDetailsPage movieDetailsPage;
 
     @Before
@@ -37,7 +37,7 @@ public class MovieDetailsPageTest {
         loginPage = new LoginPage(driver);
         homePage= new HomePage(driver);
         popularPage= new PopularPage(driver);
-        searchPage= new SearchPage(driver);
+
         movieDetailsPage= new MovieDetailsPage(driver);
 
         loginPage.loginToApplication("rahul", "rahul@2021");
@@ -54,20 +54,32 @@ public class MovieDetailsPageTest {
     public void clickingOnMovie(){
         movieDetailsPage.homeImage().click();
     }
+
     @When("clicking on popular anchar")
-    public void clickingOnPopularAnchar(){
+    public void clickingOnPopularA(){
         movieDetailsPage.popularAnchor().click();
     }
+
     @And("clicking on popular movie")
-    public void clikingOnPouplarMovie(){
+    public void clickingOnPoplarMovie(){
         movieDetailsPage.popularImage().click();
     }
+
     @Then("movie details will display in movie page")
     public void displayMovieDetails(){
         Assert.assertTrue(movieDetailsPage.name().isDisplayed(),"name is dsnt display");
         Assert.assertTrue(movieDetailsPage.review().isDisplayed(),"review dsnt dsiplay");
         Assert.assertTrue(movieDetailsPage.para().isDisplayed(),"para dsnt display");
         Assert.assertTrue(movieDetailsPage.play().isDisplayed(),"play buttondsnt display");
+        Assert.assertTrue(movieDetailsPage.logo().isDisplayed(),"movie logo not display");
+        Assert.assertTrue(movieDetailsPage.homeA().isDisplayed(),"movie home anchor not display");
+        Assert.assertTrue(movieDetailsPage.popularAnchor().isDisplayed(),"popular anchor not display");
+        Assert.assertTrue(movieDetailsPage.searchIcon().isDisplayed(),"search icon not display");
+        Assert.assertTrue(movieDetailsPage.profile().isDisplayed(),"profile not display");
+        Assert.assertEquals(movieDetailsPage.contactText(),"Contact Us","contact section text is not match");
+        Assert.assertEquals(movieDetailsPage.contactIcon(),4,"count doesnt match");
+        Assert.assertEquals(movieDetailsPage.more(),"More like this","more head not match");
+        Assert.assertTrue(movieDetailsPage.moviesList().isDisplayed(),"movies list not dsiplay");
     }
 
 

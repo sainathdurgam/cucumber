@@ -1,4 +1,4 @@
-package pages;
+package stepdefinitions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,11 +19,19 @@ public class HomePage {
     By navHomeE=By.xpath("//a[text()='Home']");
     By navPopular=By.xpath("//a[text()='Popular']");
     By profileImgE=By.xpath("//button[@type='button']/img");
+    By contactSectionItems=By.xpath("//div[@class='footer-icons-container']/child::*");
+    By contactTextE=By.xpath("//div[@class='footer-container']/p");
+    By searchE=By.xpath("//button[@class='search-empty-button']");
 
     public HomePage(WebDriver driver){
         this.driver=driver;
         this.wait= new WebDriverWait(driver,Duration.ofSeconds(10));
     }
+
+    public WebElement searching(){
+        return  driver.findElement(searchE);
+    }
+
     public WebElement web(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(websiteLogoE));
         return driver.findElement(websiteLogoE);
@@ -58,5 +66,13 @@ public class HomePage {
     public WebElement footer(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(footerE));
         return driver.findElement(footerE);
+    }
+
+    public int contactIcon(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(contactSectionItems));
+       return   driver.findElements(contactSectionItems).size();
+    }
+    public String contactText(){
+        return driver.findElement(contactTextE).getText();
     }
 }

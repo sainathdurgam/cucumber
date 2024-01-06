@@ -14,3 +14,10 @@ Feature: Home Page
   Scenario: Home header section functionality
     Given am on Home page
     And Clicking navbar Links
+
+  Scenario:  Contact us Section
+    Given am on Home page
+    Then Should display contact section in bottom
+
+
+

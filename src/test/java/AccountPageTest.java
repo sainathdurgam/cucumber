@@ -9,9 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
+
 import java.time.Duration;
-import pages.*;
+import stepdefinitions.*;
 
 
 public class AccountPageTest {
@@ -19,7 +19,7 @@ public class AccountPageTest {
     LoginPage loginPage;
     HomePage homePage;
     PopularPage popularPage;
-    SearchPage searchPage;
+
     MovieDetailsPage movieDetailsPage;
     AccountPage accountsPage;
 
@@ -42,7 +42,7 @@ public class AccountPageTest {
         loginPage = new LoginPage(driver);
         homePage= new HomePage(driver);
         popularPage= new PopularPage(driver);
-        searchPage= new SearchPage(driver);
+
         movieDetailsPage= new MovieDetailsPage(driver);
         accountsPage = new AccountPage(driver);
 
@@ -62,10 +62,19 @@ public class AccountPageTest {
     }
     @Then("see account details")
     public void accountDetails(){
-        Assert.assertTrue(accountsPage.head().isDisplayed(),"accound head dsnt display");
+        Assert.assertTrue(accountsPage.profile().isDisplayed(),"profile dsnt display");
+        Assert.assertEquals(accountsPage.head(),"Account","account text not match");
         Assert.assertTrue(accountsPage.username().isDisplayed(),"accound user dsnt display");
         Assert.assertTrue(accountsPage.password().isDisplayed(),"accound pass dsnt display");
         Assert.assertTrue(accountsPage.premium().isDisplayed(),"accound premium dsnt display");
+        Assert.assertTrue(accountsPage.movieLogo().isDisplayed(),"movie logo not display");
+        Assert.assertTrue(accountsPage.homeA().isDisplayed(),"home anchor not display");
+        Assert.assertTrue(accountsPage.popularA().isDisplayed(),"profileA not display");
+        Assert.assertTrue(accountsPage.searchIconProfile().isDisplayed(),"search not display");
+        Assert.assertTrue(accountsPage.memberShip().isDisplayed(),"membership not display");
+        Assert.assertTrue(accountsPage.planDetails().isDisplayed(),"plan details not display");
+        Assert.assertTrue(accountsPage.iconDetail().isDisplayed(),"icons not display");
+        Assert.assertEquals(accountsPage.contactUs(),"Contact Us","contact msg match");
     }
 
     @And("click on logout button")

@@ -6,3 +6,5 @@ Feature: Popular page
   Scenario: Popular UI
     Given Iam on popular page
     Then i will able see movies
+    Then i will see page logo,home link,populat link,search icon,profile icon
+    Then i will see contact section in buttom

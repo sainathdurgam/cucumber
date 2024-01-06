@@ -2,12 +2,14 @@
 <suite name="MoviesAppTestSuite2" parallel="classes" thread-count="2">
     <test name="Movies App Test" >
         <classes>
-            <class name="LoginPageTest" />
+            <class name="TestRunner" />
             <class name="HomePageTest" />
-            <class name="PopularPageTest" />
-            <class name="SearchPageTest" />
+            <class name="LoginPageTest" />
             <class name="MovieDetailsPageTest" />
             <class name="AccountPageTest" />
+            <class name="PopularPageTest" />
+
+
 
         </classes>
     </test>

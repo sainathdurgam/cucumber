@@ -1,4 +1,4 @@
-package pages;
+package stepdefinitions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,7 +13,7 @@ public class LoginPage {
     By websiteLogoImage=By.xpath("//div[@class='login-website-logo-container']");
     By HeadingText=By.xpath("//h1");
     By usernameLabel=By.xpath("//label[text()='USERNAME']");
-    By passwordlabel=By.xpath("//label[text()='PASSWORD']");
+    By passwordLabel=By.xpath("//label[text()='PASSWORD']");
     By loginButton=By.xpath("//button");
     By userE=By.xpath("//input[@id='usernameInput']");
     By passE=By.xpath("//input[@id='passwordInput']");
@@ -31,7 +31,7 @@ public class LoginPage {
         return driver.findElement(websiteLogoImage);
     }
 
-    public String getHeadingtextAt(){
+    public String getHeadingTextAt(){
         return driver.findElement(HeadingText).getText();
     }
 
@@ -40,7 +40,7 @@ public class LoginPage {
     }
 
     public String passwordLabelFun(){
-        return driver.findElement(passwordlabel).getText();
+        return driver.findElement(passwordLabel).getText();
     }
 
     public WebElement btn(){

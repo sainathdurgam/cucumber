@@ -19,6 +19,7 @@ Feature: Login Functionality
   Scenario: Login with empty input fields
 
     Given I am on the login page
+    When Empty username and passwords test
     And I click on the login button
     Then error message 'Invalid user ID' should be visible
 
@@ -40,6 +41,12 @@ Feature: Login Functionality
 
     Given I am on the login page
     When I enter a valid User ID and I enter an invalid PIN
+    And I click on the login button
+    Then an error message 'User ID and PIN didn't match' should be visible
+
+  Scenario: Invalid username and correct password test
+    Given I am on the login page
+    When Invalid username and correct password test
     And I click on the login button
     Then an error message 'User ID and PIN didn't match' should be visible
 
