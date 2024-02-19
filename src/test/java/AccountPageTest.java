@@ -27,7 +27,7 @@ public class AccountPageTest {
     @Before
     public void setUp(){
 
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (2)\\chromedriver-win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (3)\\chromedriver-win32\\chromedriver.exe");
         driver = new ChromeDriver();
     }
 
@@ -75,6 +75,8 @@ public class AccountPageTest {
         Assert.assertTrue(accountsPage.planDetails().isDisplayed(),"plan details not display");
         Assert.assertTrue(accountsPage.iconDetail().isDisplayed(),"icons not display");
         Assert.assertEquals(accountsPage.contactUs(),"Contact Us","contact msg match");
+        Assert.assertTrue(accountsPage.premiumAccount().isDisplayed(),"premium details not display");
+        Assert.assertTrue(accountsPage.UltraHd().isDisplayed(),"ultra hd is not display");
     }
 
     @And("click on logout button")

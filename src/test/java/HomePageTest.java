@@ -22,7 +22,7 @@ public class HomePageTest {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (2)\\chromedriver-win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (3)\\chromedriver-win32\\chromedriver.exe");
         driver = new ChromeDriver();
 
     }
@@ -58,10 +58,13 @@ public class HomePageTest {
         Assert.assertTrue(homePage.play().isDisplayed(),"play btn dsnt display");
         Assert.assertTrue(homePage.footer().isDisplayed(),"footer dnt displayed");
         Assert.assertEquals(homePage.headCount(),3,"count dst match");
+        Assert.assertTrue(homePage.moviesDisplay().isDisplayed(),"movies not display");
         Assert.assertEquals(homePage.movesInt(),20,"movies count dsnt matched");
-
+       //String[] arr = {"A Few Good Men","Trending Now","Originals"};
+       for (int i=0;i<homePage.headCount();i++){
+           Assert.assertTrue(homePage.headDisplay( i).isDisplayed(),"heading not match");
+       }
     }
-
 
     @Then("header section Ui display as this")
     public void headerSectionUi(){
@@ -77,8 +80,11 @@ public class HomePageTest {
     public void headerSection(){
         homePage.home().click();
         homePage.popular().click();
+        homePage.home().click();
         homePage.profile().click();
+        homePage.home().click();
         homePage.searching().click();
+        homePage.home().click();
     }
 
     @Then("Should display contact section in bottom")

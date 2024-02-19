@@ -20,7 +20,7 @@ public class PopularPageTest {
     @Before
     public void setUp(){
 
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (2)\\chromedriver-win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (3)\\chromedriver-win32\\chromedriver.exe");
         driver = new ChromeDriver();
 
     }
@@ -50,7 +50,8 @@ public class PopularPageTest {
 
     @Then("i will able see movies")
     public void popularUi(){
-        Assert.assertEquals(popularPage.moviesContainer(),30,"movies dsnt display");
+        Assert.assertTrue(popularPage.moviesDisplay().isDisplayed(),"movies in popular page not display");
+        Assert.assertEquals(popularPage.moviesContainer(),30,"movies not display");
     }
 
     @Then("i will see page logo,home link,populat link,search icon,profile icon")
@@ -65,5 +66,14 @@ public class PopularPageTest {
     public void contactSection(){
         Assert.assertEquals(popularPage.contactIcon(),4,"popular contact icon dsnt match");
         Assert.assertEquals(popularPage.contactText(),"Contact Us","popular contact text not matched");
+    }
+    @Then("navigate to other pages from popular page")
+    public void navigateToOtherPages(){
+        popularPage.home().click();
+        popularPage.popular().click();
+        popularPage.profile().click();
+        popularPage.popular().click();
+        popularPage.searchIcon().click();
+        popularPage.popular();
     }
 }

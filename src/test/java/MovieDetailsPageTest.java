@@ -24,7 +24,7 @@ public class MovieDetailsPageTest {
     @Before
     public void setUp(){
 
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (2)\\chromedriver-win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (3)\\chromedriver-win32\\chromedriver.exe");
         driver = new ChromeDriver();
     }
     @After
@@ -80,6 +80,10 @@ public class MovieDetailsPageTest {
         Assert.assertEquals(movieDetailsPage.contactIcon(),4,"count doesnt match");
         Assert.assertEquals(movieDetailsPage.more(),"More like this","more head not match");
         Assert.assertTrue(movieDetailsPage.moviesList().isDisplayed(),"movies list not dsiplay");
+        Assert.assertTrue(movieDetailsPage.genres().isDisplayed(),"genres not display");
+        Assert.assertTrue(movieDetailsPage.audio().isDisplayed(),"audio container is not display");
+        Assert.assertTrue(movieDetailsPage.rating().isDisplayed(),"rating container is not display");
+        Assert.assertTrue(movieDetailsPage.budget().isDisplayed(),"budget is not display");
     }
 
 

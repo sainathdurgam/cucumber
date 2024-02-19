@@ -29,6 +29,7 @@ public class HomePage {
     }
 
     public WebElement searching(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(searchE));
         return  driver.findElement(searchE);
     }
 
@@ -51,6 +52,14 @@ public class HomePage {
     public int headCount(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(headingsE));
         return  driver.findElements(headingsE).size();
+    }
+    public WebElement headDisplay(int i){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(headingsE));
+        return driver.findElements(headingsE).get( i);
+    }
+    public WebElement moviesDisplay(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(moviesE));
+        return driver.findElement(moviesE);
     }
 
     public WebElement play(){

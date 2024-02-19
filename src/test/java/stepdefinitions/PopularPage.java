@@ -61,4 +61,8 @@ public class PopularPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(movies));
         return driver.findElements(movies).size();
     }
+   public WebElement moviesDisplay(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(movies));
+        return driver.findElement(movies);
+    }
 }

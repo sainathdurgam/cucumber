@@ -25,6 +25,8 @@ public class AccountPage {
     By planDetails=By.xpath("//p[text()='Plan details']");
     By iconContainer=By.xpath("//div[@class='footer-icons-container']");
     By contact=By.xpath("//p[@class='contact-us-paragraph']");
+    By PremiumE=By.xpath("//p[@class='plan-paragraph']");
+    By UltraE=By.xpath("//p[@class='plan-details']");
 
     public AccountPage(WebDriver driver){
         this.driver=driver;
@@ -33,6 +35,14 @@ public class AccountPage {
     public WebElement movieLogo(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(moviesLogo));
         return driver.findElement(moviesLogo);
+    }
+    public WebElement premiumAccount(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(PremiumE));
+        return driver.findElement(PremiumE);
+    }
+    public WebElement UltraHd(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(UltraE));
+        return driver.findElement(UltraE);
     }
     public WebElement homeA(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(homeAnchor));

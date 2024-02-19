@@ -23,7 +23,8 @@ public class SearchPageTest {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (2)\\chromedriver-win32\\chromedriver.exe");
+        //C:\Users\HP\Downloads\chromedriver-win32 (3)\chromedriver-win32
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (3)\\chromedriver-win32\\chromedriver.exe");
         driver = new ChromeDriver();
 
     }

@@ -63,7 +63,8 @@ public class LoginPage {
         clickOnButton();
     }
     public String getErrorMessage(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessageLocator)).getText();
+         wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessageLocator));
+         return driver.findElement(errorMessageLocator).getText();
     }
 
 }

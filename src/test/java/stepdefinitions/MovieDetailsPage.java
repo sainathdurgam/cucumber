@@ -17,7 +17,7 @@ public class MovieDetailsPage {
     By paraE=By.xpath("//div[@class='title-details-container']/p");
     By playButoonE=By.xpath("//button[@class='play-button']");
     By popularAnchorE=By.xpath("//a[text()='Popular']");
-    By paraImageE=By.xpath("//div[@class='search-movies-container']/li");
+    By paraImageE=By.xpath("//div[@class='search-movies-container']/li");//not working
 
     By logoE=By.xpath("//img[@class='website-logo']");
     By homeAncharE=By.xpath("//a[text()='Home']");
@@ -28,6 +28,12 @@ public class MovieDetailsPage {
     By contactTextE=By.xpath("//div[@class='footer-container']/p");
     By moreHeadE=By.xpath("//h1[@class='similar-movies-heading']");
     By moviesList=By.xpath("//li/img");
+    By genresE=By.xpath("//div[@class='genres-category']");
+    By AudioLanguageE=By.xpath("//div[@class='audio-category']");
+    By RatingE=By.xpath("//div[@class='rating-category']");
+    By budgetE=By.xpath("//div[@class='budget-category']");
+
+
     public MovieDetailsPage(WebDriver driver){
         this.driver=driver;
         this.wait= new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -55,6 +61,22 @@ public class MovieDetailsPage {
     public WebElement logo(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(logoE));
         return driver.findElement(logoE);
+    }
+    public WebElement genres(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(genresE));
+        return driver.findElement(genresE);
+    }
+    public WebElement audio(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(AudioLanguageE));
+        return driver.findElement(AudioLanguageE);
+    }
+    public WebElement rating(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(RatingE));
+        return driver.findElement(RatingE);
+    }
+    public WebElement budget(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(budgetE));
+        return driver.findElement(budgetE);
     }
 
     public int contactIcon(){
