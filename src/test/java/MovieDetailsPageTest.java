@@ -84,6 +84,19 @@ public class MovieDetailsPageTest {
         Assert.assertTrue(movieDetailsPage.audio().isDisplayed(),"audio container is not display");
         Assert.assertTrue(movieDetailsPage.rating().isDisplayed(),"rating container is not display");
         Assert.assertTrue(movieDetailsPage.budget().isDisplayed(),"budget is not display");
+        Assert.assertEquals("Genres",movieDetailsPage.genresH(),"genres heading not match");
+        Assert.assertEquals("Audio Available",movieDetailsPage.audioH(),"audio heading not match");
+        Assert.assertEquals("Rating Count",movieDetailsPage.ratingCountH(),"rating count heading not match");
+        Assert.assertEquals("Rating Average",movieDetailsPage.ratingAverageH(),"rating average heading not match");
+        Assert.assertEquals("Budget",movieDetailsPage.budgetH(),"budget heading not match");
+        Assert.assertEquals("Release Date",movieDetailsPage.releaseH(),"release date heading not match");
+        Assert.assertTrue(movieDetailsPage.genresPara().isDisplayed(),"genres para not display");
+        Assert.assertTrue(movieDetailsPage.audioPara().isDisplayed(),"audio para is not display");
+        Assert.assertTrue(movieDetailsPage.ratingCountPara().isDisplayed(),"rating count para is not display");
+        Assert.assertTrue(movieDetailsPage.ratingAveragePara().isDisplayed(),"rating average para is not display");
+        Assert.assertTrue(movieDetailsPage.budgetPara().isDisplayed(),"budget para is not display");
+        Assert.assertTrue(movieDetailsPage.releasePara().isDisplayed(),"release para is not display");
+
     }
 
 

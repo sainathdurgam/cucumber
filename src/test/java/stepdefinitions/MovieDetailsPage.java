@@ -32,6 +32,19 @@ public class MovieDetailsPage {
     By AudioLanguageE=By.xpath("//div[@class='audio-category']");
     By RatingE=By.xpath("//div[@class='rating-category']");
     By budgetE=By.xpath("//div[@class='budget-category']");
+    By genresHeadingE=By.xpath("//h1[text()='Genres']");
+    By genresParaE=By.xpath("//div[@class='genres-container']/p");
+    By audioHeadingE=By.xpath("//h1[text()='Audio Available']");
+    By audioParaE=By.xpath("//ul[@class='audio-container']/li");
+    By ratingCountHeadingE=By.xpath("//h1[text()='Rating Count']");
+    By ratingCountParaE=By.xpath("//div[@class='rating-category']/p");
+    By ratingAverageHeadingE=By.xpath("//h1[text()='Rating Average']");
+    By ratingAverageParaE=By.xpath("//div[@class='rating-category']/p");
+    By budgetHeadingE=By.xpath("//h1[text()='Budget']");
+    By budgetParaE=By.xpath("//div[@class='budget-category']/p");
+    By releaseDateHeading=By.xpath("//h1[text()='Release Date']");
+    By releaseParaE=By.xpath("//div[@class='budget-category']/p");
+
 
 
     public MovieDetailsPage(WebDriver driver){
@@ -48,6 +61,30 @@ public class MovieDetailsPage {
     public WebElement homeA(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(homeAncharE));
         return driver.findElement(homeAncharE);
+    }
+    public WebElement genresPara(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(genresParaE));
+        return driver.findElement(genresParaE);
+    }
+    public WebElement audioPara(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(audioParaE));
+        return driver.findElement(audioParaE);
+    }
+    public WebElement ratingCountPara(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ratingCountParaE));
+        return driver.findElement(ratingCountParaE);
+    }
+    public WebElement ratingAveragePara(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ratingAverageParaE));
+        return driver.findElement(ratingAverageParaE);
+    }
+    public WebElement budgetPara(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(budgetParaE));
+        return driver.findElement(budgetParaE);
+    }
+    public WebElement releasePara(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(releaseParaE));
+        return driver.findElement(releaseParaE);
     }
     public WebElement popular(){
         return driver.findElement(popularE);
@@ -66,6 +103,8 @@ public class MovieDetailsPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(genresE));
         return driver.findElement(genresE);
     }
+
+
     public WebElement audio(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(AudioLanguageE));
         return driver.findElement(AudioLanguageE);
@@ -85,6 +124,30 @@ public class MovieDetailsPage {
     }
     public String contactText(){
         return driver.findElement(contactTextE).getText();
+    }
+    public String genresH(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(genresHeadingE));
+        return driver.findElement(genresHeadingE).getText();
+    }
+    public String audioH(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(audioHeadingE));
+        return driver.findElement(audioHeadingE).getText();
+    }
+    public String ratingCountH(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ratingCountHeadingE));
+        return driver.findElement(ratingCountHeadingE).getText();
+    }
+    public String ratingAverageH(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ratingAverageHeadingE));
+        return driver.findElement(ratingAverageHeadingE).getText();
+    }
+    public String budgetH(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(budgetHeadingE));
+        return driver.findElement(budgetHeadingE).getText();
+    }
+    public String releaseH(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(releaseDateHeading));
+        return driver.findElement(releaseDateHeading).getText();
     }
 
     public WebElement homeImage(){
