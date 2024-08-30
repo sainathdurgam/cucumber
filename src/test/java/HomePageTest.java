@@ -22,7 +22,7 @@ public class HomePageTest {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (3)\\chromedriver-win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
 
     }
@@ -54,13 +54,22 @@ public class HomePageTest {
     @Then("i can view Home page with all elements")
     public void homepage(){
 
+        Assert.assertEquals(homePage.trendingHeading().getText(),"Trending Now","trending heading not match");
+        Assert.assertEquals(homePage.orginalHeading().getText(),"Originals","original heading not match");
+       /*for (int i=0;i<2;i++){
+            Assert.assertTrue(homePage.moviez(i).isDisplayed(),"movies not displayed");
+        }*/
+       // Assert.assertTrue(homePage.movieScreen().isDisplayed(),"screen is not displayed");
+        //Assert.assertTrue(homePage.moviePara().isDisplayed(),"movie para is not displayed");
         //Assert.assertEquals(actualCount,3,"header count dsnt match");
-        Assert.assertTrue(homePage.play().isDisplayed(),"play btn dsnt display");
+        Assert.assertTrue(homePage.play().isDisplayed(),"play btn does not display");
         Assert.assertTrue(homePage.footer().isDisplayed(),"footer dnt displayed");
         Assert.assertEquals(homePage.headCount(),3,"count dst match");
         Assert.assertTrue(homePage.moviesDisplay().isDisplayed(),"movies not display");
         Assert.assertEquals(homePage.movesInt(),20,"movies count dsnt matched");
        //String[] arr = {"A Few Good Men","Trending Now","Originals"};
+
+
        for (int i=0;i<homePage.headCount();i++){
            Assert.assertTrue(homePage.headDisplay( i).isDisplayed(),"heading not match");
        }
@@ -78,13 +87,50 @@ public class HomePageTest {
 
     @And("Clicking navbar Links")
     public void headerSection(){
-        homePage.home().click();
+        //homePage.home().click();
+
+
         homePage.popular().click();
-        homePage.home().click();
+        String expectedUrlP = "https://qamoviesapp.ccbp.tech/popular";
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.urlToBe(expectedUrlP));
+
+        String actualURLP = driver.getCurrentUrl();
+        Assert.assertEquals(actualURLP, expectedUrlP, "Popular URLs do not match");
+
+        //homePage.home().click();
+
+
         homePage.profile().click();
-        homePage.home().click();
+        String expectedUrlProfile = "https://qamoviesapp.ccbp.tech/account";
+
+        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait2.until(ExpectedConditions.urlToBe(expectedUrlProfile));
+
+        String actualURLProfile = driver.getCurrentUrl();
+        Assert.assertEquals(actualURLProfile, expectedUrlProfile, "Profile URLs do not match");
+        //homePage.home().click();
+
+
         homePage.searching().click();
+        String expectedUrls = "https://qamoviesapp.ccbp.tech/search";
+
+        WebDriverWait wait3 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait3.until(ExpectedConditions.urlToBe(expectedUrls));
+
+        String actualURLs = driver.getCurrentUrl();
+        Assert.assertEquals(actualURLs, expectedUrls, "search URLs do not match");
+
+
         homePage.home().click();
+        String expectedUrl = "https://qamoviesapp.ccbp.tech/";
+
+        WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait4.until(ExpectedConditions.urlToBe(expectedUrl));
+
+        String actualURL = driver.getCurrentUrl();
+        Assert.assertEquals(actualURL, expectedUrl, "home URLs do not match");
     }
 
     @Then("Should display contact section in bottom")

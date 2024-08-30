@@ -23,19 +23,18 @@ public  class LoginPageTest {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (3)\\chromedriver-win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
     }
-    @After
-    public void tearDown(){
-        driver.quit();
-    }
 
 
 
 
 
-    @Given("I am on the login page")
+
+
+
+    @Given("I am on the login page")//login page
     public void loginPage(){
         driver.get("https://qamoviesapp.ccbp.tech");
         loginPage = new LoginPage(driver);
@@ -43,10 +42,10 @@ public  class LoginPageTest {
     @Then("I should be view UI")
     public void loginPageUi(){
         Assert.assertTrue(loginPage.findLogo().isDisplayed(),"App logo image is not displayed");
-        Assert.assertEquals(loginPage.getHeadingTextAt(),"Login","heading dsnt match");
+        Assert.assertEquals(loginPage.getHeadingTextAt(),"Login","heading does not match");
         Assert.assertEquals(loginPage.usernameLabelFun(),"USERNAME","user label text does not match");
         Assert.assertEquals(loginPage.passwordLabelFun(),"PASSWORD","password label text does not match");
-        Assert.assertTrue(loginPage.btn().isDisplayed(),"btn is dsnt matched");
+        Assert.assertTrue(loginPage.btn().isDisplayed(),"btn is does not matched");
     }
 
 
@@ -116,7 +115,7 @@ public  class LoginPageTest {
         loginPage.loginToApplication("rahu", "rahul@2021ghhghjg");
     }
     @Then("an error message *invalid username should be visible")
-    public void invaliduserName(){
+    public void invalidUserName(){
 
         Assert.assertEquals(loginPage.getErrorMessage(),"*invalid username","username and password not match");
     }
@@ -133,6 +132,12 @@ public  class LoginPageTest {
     @And("I click on the login button")
     public void clicking(){
         loginPage.clickOnButton();
+    }
+
+
+    @After
+    public void tearDown(){
+        driver.quit();
     }
 
 

@@ -27,7 +27,7 @@ public class AccountPageTest {
     @Before
     public void setUp(){
 
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win32 (3)\\chromedriver-win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\HP\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
     }
 
@@ -62,10 +62,10 @@ public class AccountPageTest {
     }
     @Then("see account details")
     public void accountDetails(){
-        Assert.assertTrue(accountsPage.profile().isDisplayed(),"profile dsnt display");
+        Assert.assertTrue(accountsPage.profile().isDisplayed(),"profile does not display");
         Assert.assertEquals(accountsPage.head(),"Account","account text not match");
-        Assert.assertTrue(accountsPage.username().isDisplayed(),"accound user dsnt display");
-        Assert.assertTrue(accountsPage.password().isDisplayed(),"accound pass dsnt display");
+        Assert.assertTrue(accountsPage.username().isDisplayed(),"account user does not display");
+        Assert.assertTrue(accountsPage.password().isDisplayed(),"account pass dsnt display");
         Assert.assertTrue(accountsPage.premium().isDisplayed(),"accound premium dsnt display");
         Assert.assertTrue(accountsPage.movieLogo().isDisplayed(),"movie logo not display");
         Assert.assertTrue(accountsPage.homeA().isDisplayed(),"home anchor not display");

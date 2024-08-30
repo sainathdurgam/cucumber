@@ -6,12 +6,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.WebElement;
 import java.time.Duration;
+import java.util.List;
 
 public class HomePage {
     WebDriver driver;
     WebDriverWait wait;
 
     By headingsE=By.xpath("//h1");
+    By trendHeading=By.xpath("//h1[text()='Trending Now']");
+    By orginalHeading=By.xpath("//h1[text()='Originals']");
     By playBtnE=By.xpath("//button[@class='home-movie-play-button']");
     By moviesE=By.xpath("//img[@class='poster']");
     By footerE=By.xpath("//div[@class='footer-container']");
@@ -22,10 +25,34 @@ public class HomePage {
     By contactSectionItems=By.xpath("//div[@class='footer-icons-container']/child::*");
     By contactTextE=By.xpath("//div[@class='footer-container']/p");
     By searchE=By.xpath("//button[@class='search-empty-button']");
+    By moviesDisplayE=By.xpath("//div[@class='slick-track']");
+
+    //By movieParaE=By.xpath("//p[@class='movie-overview']");
+
 
     public HomePage(WebDriver driver){
         this.driver=driver;
         this.wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+    }
+    /*public WebElement moviez(int j){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(moviesDisplayE));
+         for (int k=0;k<2;k++){
+            return  driver.findElements(moviesDisplayE).get(k);
+        }
+
+    }*/
+    public WebElement trendingHeading(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(trendHeading));
+        return  driver.findElement(trendHeading);
+    }
+
+    /*public WebElement moviePara(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(movieParaE));
+        return  driver.findElement(movieParaE);
+    }*/
+    public WebElement orginalHeading(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(orginalHeading));
+        return  driver.findElement(orginalHeading);
     }
 
     public WebElement searching(){
